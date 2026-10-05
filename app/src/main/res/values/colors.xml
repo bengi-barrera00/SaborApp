@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="sabor_naranja">#FF6D00</color>
-    <color name="sabor_rojo">#D32F2F</color>
-    <color name="sabor_naranja_claro">#FFE0B2</color>
+    <color name="sabor_primario">#D84315</color>
+    <color name="sabor_primario_claro">#FBE9E7</color>
+    <color name="sabor_fondo">#F6F6F6</color>
+    <color name="sabor_superficie">#FFFFFF</color>
+    <color name="sabor_borde">#E0E0E0</color>
+    <color name="sabor_texto_principal">#1A1A1A</color>
+    <color name="sabor_texto_secundario">#6E6E6E</color>
+    <color name="sabor_badge_ok_fondo">#ECECEF</color>
+    <color name="sabor_badge_alerta_fondo">#F8E5E5</color>
 </resources>

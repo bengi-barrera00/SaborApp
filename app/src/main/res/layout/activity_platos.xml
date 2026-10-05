@@ -1,73 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/sabor_fondo">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilNombre"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del plato"
-        android:layout_marginBottom="8dp">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/sabor_primario"
+        android:padding="20dp">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <ImageButton
+            android:id="@+id/btnVolver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_revert"
+            app:tint="@android:color/white"
+            android:contentDescription="Volver" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Platos"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
             android:id="@+id/etNombre"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_campo_texto"
+            android:padding="14dp"
+            android:hint="Nombre del plato"
+            android:layout_marginBottom="10dp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilCategoria"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Categoría"
-        android:layout_marginBottom="8dp">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/etCategoria"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_campo_texto"
+            android:padding="14dp"
+            android:hint="Categoría"
+            android:layout_marginBottom="10dp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPrecio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Precio"
-        android:layout_marginBottom="8dp">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/etPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            android:background="@drawable/bg_campo_texto"
+            android:padding="14dp"
+            android:hint="Precio"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="10dp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <CheckBox
+            android:id="@+id/cbDisponible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Disponible"
+            android:textColor="@color/sabor_texto_principal"
+            android:layout_marginBottom="14dp" />
 
-    <CheckBox
-        android:id="@+id/cbDisponible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Disponible"
-        android:layout_marginBottom="12dp" />
+        <Button
+            android:id="@+id/btnGuardarPlato"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_boton_pill"
+            android:text="Guardar plato"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/btnGuardarPlato"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Guardar plato"
-        android:layout_marginBottom="16dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPlatos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPlatos"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    </LinearLayout>
 
 </LinearLayout>

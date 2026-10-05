@@ -5,15 +5,18 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import pe.edu.senati.barrera.saborapp.databinding.ActivityLoginBinding
+import pe.edu.senati.barrera.saborapp.data.UsuarioDAO
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var usuarioDAO: UsuarioDAO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        usuarioDAO = UsuarioDAO(this)
 
         binding.btnIngresar.setOnClickListener {
             validarCampos()
@@ -27,10 +30,8 @@ class LoginActivity : AppCompatActivity() {
         var camposValidos = true
 
         if (usuario.isEmpty()) {
-            binding.tilUsuario.error = "Ingresa tu usuario"
+            binding.etUsuario.error = "Ingresa tu usuario"
             camposValidos = false
-        } else {
-            binding.tilUsuario.error = null
         }
 
         if (clave.isEmpty()) {
@@ -42,8 +43,11 @@ class LoginActivity : AppCompatActivity() {
 
         if (!camposValidos) return
 
-        if (usuario == "admin" && clave == "1234") {
+        val usuarioValidado = usuarioDAO.validarUsuario(usuario, clave)
+        if (usuarioValidado != null) {
             val intento = Intent(this, MenuActivity::class.java)
+            intento.putExtra("rol", usuarioValidado.rol)
+            intento.putExtra("nombreUsuario", usuarioValidado.usuario)
             startActivity(intento)
             finish()
         } else {
