@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
         if (!camposValidos) return
 
         if (usuario == "admin" && clave == "1234") {
-            val intento = Intent(this, LoginActivity::class.java)
+            val intento = Intent(this, MenuActivity::class.java)
             startActivity(intento)
             finish()
         } else {

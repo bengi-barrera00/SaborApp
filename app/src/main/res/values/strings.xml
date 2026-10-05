@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">SaborApp</string>
+    <string name="SaborApp">SaborApp</string>
+    <string name="Platos">Platos</string>
+    <string name="Mesas">Mesas</string>
+    <string name="Pedidos">Pedidos</string>
+    <string name="Reportes">Reportes</string>
+    <string name="Salir">Salir</string>
 </resources>
